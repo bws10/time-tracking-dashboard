@@ -285,7 +285,7 @@ main {
     transform: scale(0.95) translatey(2.4em);
     z-index: -1;
   }
-  40%, 60% {
+  50%, 55% {
     transform: scale(0.95) translatey(0em) scaleY(0);
     transform-origin: top;
     z-index: -1;
