@@ -15,7 +15,9 @@
     <title>Frontend Mentor | Time tracking dashboard</title>
   </head>
   <body>
-    <h1 class="sr-only">Time Tracking Dasborad</h1>
+    <header>
+      <h1 class="sr-only">Time Tracking Dasborad</h1>
+    </header>
     <main>
       <div class="container">
         <div class="card--person" class="card">
@@ -27,9 +29,9 @@
             <h2 class="name">Jeremy Robson</h2>
           </div>
           <div class="card--person__bottom">
-            <button id="btn" class="daily">Daily</button>
-            <button id="btn" class="weekly active">Weekly</button>
-            <button id="btn" class="monthly">Monthly</button>
+            <button class="daily">Daily</button>
+            <button class="weekly active">Weekly</button>
+            <button class="monthly">Monthly</button>
           </div>
         </div>
         <div class="card">
@@ -39,14 +41,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Work</div>
-            <button class="ellipsis">
+            <button aria-label="Select Work Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -66,14 +63,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Play</div>
-            <button class="ellipsis">
+            <button aria-label="Select Play Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -93,14 +85,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Study</div>
-            <button class="ellipsis">
+            <button aria-label="Select Study Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -120,14 +107,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Exercise</div>
-            <button class="ellipsis">
+            <button aria-label="Select Exercise Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -147,14 +129,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Social</div>
-            <button class="ellipsis">
+            <button aria-label="Select Social Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -174,14 +151,9 @@
           </div>
           <div class="card__details">
             <div class="card_title">Self Care</div>
-            <button class="ellipsis">
+            <button aria-label="Select Self Care Card" class="ellipsis">
               <!-- ellipsis svg code hardcoded in HTML in order to manipulate "fill" property in CSS -->
-              <svg
-                id="btn"
-                width="21"
-                height="5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
@@ -197,12 +169,14 @@
       </div>
     </main>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Will Parsons</a>.
-    </div>
-    <script defer type="module" src="./js/script.js"></script>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Will Parsons</a>.
+      </div>
+    </footer>
+    <script defer src="./js/script.js"></script>
   </body>
 </html>
