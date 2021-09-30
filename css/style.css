@@ -189,7 +189,7 @@ main {
 }
 .card .animate {
   animation-name: swap;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-timing-function: linear;
 }
 .card__details {
@@ -278,7 +278,7 @@ main {
   10% {
     transform: scale(1.04) translatey(0em);
   }
-  30% {
+  25% {
     transform: scale(1.04) translatey(2.4em);
   }
   40% {
@@ -292,12 +292,12 @@ main {
     z-index: -1;
   }
  
-  60% {
+  65% {
     transform: scale(0.95) translatey(2.4em) scaleY(1);
     transform-origin: top;
     z-index: -1;
   }
-  70% {
+  75% {
     transform: scale(1.04) translatey(2.4em) scaleY(1);
     z-index: 2;
   }
