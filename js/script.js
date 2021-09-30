@@ -1,5 +1,5 @@
 //animation duration + 200ms
-var timeout = 4200;
+var timeout = 3200;
 //data object to store data from JSON file
 var data;
 
