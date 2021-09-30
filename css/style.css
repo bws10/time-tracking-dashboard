@@ -20,11 +20,16 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  left: 0;
   background-color: #0f1424;
   font-family: Rubik, sans-serif;
   font-weight: 300;
-  margin: 0 auto;
-  overflow: visible;
 }
 
 main {
@@ -32,10 +37,8 @@ main {
   justify-content: center;
   align-content: center;
   text-align: center;
-  flex-direction: column;
-  padding-block: 8em;
+  padding-block: 5em;
   color: #bdc1ff;
-  overflow: visible;
 }
 
 .container {
@@ -382,6 +385,10 @@ main {
 }
 
 @media only screen and (min-width: 1000px) {
+  body {
+    bottom: 0;
+  }
+
   .screen {
     display: none;
   }
@@ -389,7 +396,7 @@ main {
   .container {
     grid-template-rows: repeat(2, auto);
     grid-template-columns: repeat(4, 1fr);
-    width: 80%;
+    width: 90%;
     max-width: 966px;
     position: relative;
   }

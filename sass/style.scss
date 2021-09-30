@@ -5,22 +5,24 @@
 @include box-size;
 $topscreen: 2rem;
 body {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  left: 0;
   background-color: map.get($neutral, 400);
   font-family: map.get($fonts, ff);
   font-weight: map.get($fonts, regular);
-  margin: 0 auto;
-
-  overflow: visible;
 }
 main {
   display: flex;
   justify-content: center;
   align-content: center;
   text-align: center;
-  flex-direction: column;
-  padding-block: 8em;
+  padding-block: 5em;
   color: map.get($neutral, 100);
-  overflow: visible;
 }
 .container {
   align-self: center;
@@ -407,13 +409,16 @@ main {
 }
 
 @include mq-min("large") {
+  body {
+    bottom: 0;
+  }
   .screen {
     display: none;
   }
   .container {
     grid-template-rows: repeat(2, auto);
     grid-template-columns: repeat(4, 1fr);
-    width: 80%;
+    width: 90%;
     max-width: 966px;
     position: relative;
   }
