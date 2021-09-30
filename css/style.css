@@ -53,7 +53,7 @@ main {
 
 .card--person {
   position: sticky;
-  top: 0;
+  top: 2rem;
   z-index: 2;
   align-self: start;
   display: grid;
@@ -64,6 +64,16 @@ main {
   color: #bdc1ff;
   width: 100%;
   max-width: 335px;
+}
+.card--person .screen {
+  position: absolute;
+  top: -2rem;
+  width: 100vw;
+  left: calc(50% - 50vw);
+  height: 10rem;
+  background: #0f1424;
+  background: linear-gradient(180deg, #0f1424 0%, #0f1424 25%, rgba(15, 20, 36, 0) 100%);
+  z-index: 1;
 }
 .card--person__top, .card--person__bottom {
   display: grid;
@@ -372,6 +382,10 @@ main {
 }
 
 @media only screen and (min-width: 1000px) {
+  .screen {
+    display: none;
+  }
+
   .container {
     grid-template-rows: repeat(2, auto);
     grid-template-columns: repeat(4, 1fr);

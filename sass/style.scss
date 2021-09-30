@@ -3,7 +3,7 @@
 @use "./utilities/sr_only";
 
 @include box-size;
-
+$topscreen: 2rem;
 body {
   background-color: map.get($neutral, 400);
   font-family: map.get($fonts, ff);
@@ -37,7 +37,7 @@ main {
 
 .card--person {
   position: sticky;
-  top: 0;
+  top: $topscreen;
   z-index: 2;
   align-self: start;
   display: grid;
@@ -52,7 +52,23 @@ main {
   color: map.get($neutral, 100);
   width: 100%;
   max-width: 335px;
+  & .screen {
+    position: absolute;
+    top: -$topscreen;
+    width: 100vw;
+    left: calc(50% - 50vw);
+    height: 8rem + $topscreen;
 
+    background: map.get($neutral, 400);
+
+    background: linear-gradient(
+      180deg,
+      rgba(15, 20, 36, 1) 0%,
+      rgba(15, 20, 36, 1) 25%,
+      rgba(15, 20, 36, 0) 100%
+    );
+    z-index: 1;
+  }
   &__top,
   &__bottom {
     display: grid;
@@ -391,6 +407,9 @@ main {
 }
 
 @include mq-min("large") {
+  .screen {
+    display: none;
+  }
   .container {
     grid-template-rows: repeat(2, auto);
     grid-template-columns: repeat(4, 1fr);
