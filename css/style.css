@@ -24,6 +24,7 @@ body {
   font-family: Rubik, sans-serif;
   font-weight: 300;
   margin: 0 auto;
+  overflow: visible;
 }
 
 main {
@@ -34,11 +35,14 @@ main {
   flex-direction: column;
   padding-block: 8em;
   color: #bdc1ff;
+  overflow: visible;
 }
 
 .container {
   align-self: center;
   display: grid;
+  position: relative;
+  overflow: visible;
   gap: 1.5em;
   grid-template-rows: repeat(7, auto);
   grid-template-columns: repeat(1, 1fr);
@@ -48,8 +52,13 @@ main {
 }
 
 .card--person {
-  align-self: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  align-self: start;
   display: grid;
+  box-shadow: 0 0 15px -4px #6f76c8;
+  border-radius: 1rem;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(1, 1fr);
   grid-template-areas: "top" "mid" "btm";
@@ -169,6 +178,7 @@ main {
   position: relative;
   align-content: flex-start;
   justify-content: space-between;
+  box-shadow: 0 0 10px -4px #6f76c8;
 }
 .card .icon img {
   top: -1em;
@@ -190,9 +200,10 @@ main {
 .card .animate {
   animation-name: swap;
   animation-duration: 2s;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
 }
 .card__details {
+  box-shadow: 0 0 15px -4px #6f76c8;
   grid-area: 2/1/5/4;
   display: grid;
   border-radius: 1rem;
@@ -285,13 +296,11 @@ main {
     transform: scale(0.95) translatey(2.4em);
     z-index: -1;
   }
- 
   50%, 55% {
     transform: scale(0.95) translatey(-1em) scaleY(0);
     transform-origin: top;
     z-index: -1;
   }
- 
   65% {
     transform: scale(0.95) translatey(2.4em) scaleY(1);
     transform-origin: top;
