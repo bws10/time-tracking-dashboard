@@ -294,6 +294,7 @@ main {
  
   60% {
     transform: scale(0.95) translatey(2.4em) scaleY(1);
+    transform-origin: top;
     z-index: -1;
   }
   70% {
