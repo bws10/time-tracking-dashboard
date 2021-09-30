@@ -1,0 +1,27 @@
+$neutral: (
+  //-Neutral
+  400: hsl(226, 43%, 10%),
+  300: hsl(235, 46%, 20%),
+  250: hsl(235, 46%, 30%),
+  200: hsl(235, 45%, 61%),
+  100: hsl(236, 100%, 87%)
+);
+
+$colors: (
+  //-Primary
+  blue: hsl(246, 80%, 60%),
+  work: hsl(15, 100%, 70%),
+  play: hsl(195, 74%, 62%),
+  study: hsl(348, 100%, 68%),
+  exercise: hsl(145, 58%, 55%),
+  social: hsl(264, 64%, 52%),
+  self-care: hsl(43, 84%, 65%)
+);
+$icons: (
+  work: #d96c47,
+  play: #3f9cbb,
+  study: #f04667,
+  exercise: #29ba66,
+  social: #5a1cbb,
+  self-care: #e6a532,
+);

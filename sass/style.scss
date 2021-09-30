@@ -1,0 +1,476 @@
+@use "./abstracts" as *;
+@use "sass:map";
+@use "./utilities/sr_only";
+
+@include box-size;
+
+body {
+  background-color: map.get($neutral, 400);
+  font-family: map.get($fonts, ff);
+  font-weight: map.get($fonts, regular);
+  margin: 0 auto;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding-block: 8em;
+  color: map.get($neutral, 100);
+}
+.container {
+  align-self: center;
+  display: grid;
+  gap: 1.5em;
+  grid-template-rows: repeat(7, auto);
+  grid-template-columns: repeat(1, 1fr);
+  color: map.get($neutral, 100);
+  width: 90%;
+  max-width: 335px;
+}
+
+.card--person {
+  align-self: center;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-areas:
+    "top"
+    "mid"
+    "btm";
+  color: map.get($neutral, 100);
+  width: 100%;
+  max-width: 335px;
+
+  &__top,
+  &__bottom {
+    display: grid;
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__top {
+    grid-area: 1 /1 /3/ 2;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    background-color: map.get($colors, blue);
+    z-index: 2;
+
+    & .person__img {
+      grid-area: 1/1/3/2;
+      padding: 0rem;
+      width: 8rem;
+      overflow: hidden;
+      padding: 1.7rem;
+
+      & img {
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+        border-radius: 50%;
+        border: 0.25rem solid map.get($neutral, 100);
+      }
+    }
+    & .name {
+      grid-area: 2/2/3/4;
+      font-weight: map.get($fonts, regular);
+      font-size: 1.5rem;
+      color: white;
+      margin-top: -0.3rem;
+      margin-left: -0.5rem;
+      align-self: flex-start;
+      justify-self: flex-start;
+    }
+
+    & .report_for {
+      grid-area: 1/2/2/4;
+      font-weight: map.get($fonts, regular);
+      margin-bottom: 0.5rem;
+      margin-left: -0.5rem;
+      line-height: 1.5rem;
+      align-self: flex-end;
+      justify-self: flex-start;
+    }
+  }
+  &__bottom {
+    grid-area: 2/1/4/2;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    background-color: map.get($neutral, 300);
+    z-index: 1;
+
+    & .daily,
+    & .weekly,
+    & .monthly {
+      grid-row-start: 2;
+      justify-self: center;
+      align-self: center;
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+
+      font-weight: map.get($fonts, medium);
+      transform-origin: center;
+      transition: color 200ms ease-in-out, font-weight 200ms ease-in-out,
+        opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    }
+    & .daily:hover,
+    & .weekly:hover,
+    & .monthly:hover {
+      opacity: 0.7;
+      color: white;
+      transform: scale(1.2);
+      transform-origin: center;
+      font-weight: map.get($fonts, bold);
+      transition: color 200ms ease-in-out, font-weight 200ms ease-in-out,
+        opacity 200ms ease-in-out, transform 200ms ease-in-out;
+    }
+    & .active {
+      color: white;
+      font-weight: map.get($fonts, bold);
+      transform: scale(1.2);
+      transform-origin: center;
+    }
+    & .active:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.card {
+  display: grid;
+  // border-radius: 1rem;
+
+  grid-template-rows: 2.5rem repeat(3, 0.4fr);
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  z-index: 1;
+  & .icon {
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-area: 1/1/3/4;
+    max-height: 74px;
+    text-align: right;
+    object-fit: cover;
+    position: relative;
+    align-content: flex-start;
+    justify-content: space-between;
+
+    & img {
+      top: -1em;
+      right: 0.5em;
+      height: auto;
+      transform: scale(1);
+      position: absolute;
+    }
+  }
+  & .icon p {
+    grid-area: "Title";
+    align-self: flex-end;
+    justify-self: flex-start;
+    padding-left: 1.5rem;
+    padding-top: 1em;
+    font-weight: map.get($fonts, bold);
+    color: black;
+    margin-block: 0.3em;
+  }
+  & .animate {
+    animation-name: swap;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+  }
+  &__details {
+    // position: absolute;
+    grid-area: 2/1/5/4;
+    display: grid;
+    border-radius: 1rem;
+    overflow: hidden;
+    grid-template-rows: repeat(2, 0.4fr) 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "Title  Ellipsis"
+      "Hours  Previous"
+      "Hours  Previous";
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    // margin: 5px;
+    justify-self: center;
+    align-self: center;
+    background-color: map.get($neutral, 300);
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+
+    & .ellipsis {
+      grid-area: "Ellipsis";
+      align-self: center;
+      justify-self: flex-end;
+      padding: 0;
+      padding-right: 1.5em;
+      padding-top: 1em;
+      // color: white;
+      background: none;
+      color: inherit;
+      border: none;
+
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      & svg {
+        pointer-events: none;
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+      }
+      & svg path {
+        transition: fill 200ms ease-in-out;
+      }
+    }
+    & .ellipsis:hover svg path {
+      fill: white;
+      transition: fill 200ms ease-in-out;
+    }
+    & .ellipsis:hover svg {
+      transform: scale(1.2);
+      transition: transform 200ms ease-in-out;
+    }
+    & .card_title {
+      grid-area: "Title";
+      align-self: flex-end;
+      justify-self: flex-start;
+      padding-left: 1.5rem;
+      padding-top: 1em;
+      font-weight: map.get($fonts, bold);
+      color: white;
+      transition: color 200ms ease-in-out;
+      margin-block: 0.3em;
+    }
+    & .hours {
+      grid-area: 2/1/2/3;
+      align-self: center;
+      justify-self: flex-start;
+      padding-left: 1.5rem;
+      font-size: 2rem;
+      color: white;
+      transition: color 200ms ease-in-out;
+    }
+    & .previous {
+      grid-area: 2/1/2/3;
+      align-self: center;
+      justify-self: flex-end;
+      padding-right: 1.5em;
+      margin: 0;
+      transition: color 200ms ease-in-out;
+    }
+  }
+  & .selected {
+    transition: background-color 200ms ease-in-out;
+
+    background-color: map.get($neutral, 250);
+    // & .card_title,
+    // .hours,
+    // .previous {
+    //   transition: color 200ms ease-in-out;
+    //   color: map.get($neutral, 300);
+    //   // font-weight: map.get($fonts, bold);
+    // }
+    // & .ellipsis {
+    //   & svg path {
+    //     // pointer-events: none;
+    //     transition: fill 200ms ease-in-out;
+    //     fill: map.get($neutral, 300);
+    //   }
+    // }
+  }
+}
+
+@keyframes swap {
+  0% {
+    transform: scale(1) translatey(0em);
+  }
+  10% {
+    transform: scale(1.04) translatey(0em);
+  }
+  20% {
+    transform: scale(1.04) translatey(2.4em);
+  }
+  30% {
+    transform: scale(0.95) translatey(2.4em);
+    z-index: -1;
+  }
+
+  40%,
+  60% {
+    transform: scale(0.95) translatey(0em) scaleY(0);
+    transform-origin: top;
+    z-index: -1;
+  }
+  70% {
+    transform: scale(0.95) translatey(2.4em) scaleY(1);
+    z-index: -1;
+  }
+  80% {
+    transform: scale(1.04) translatey(2.4em) scaleY(1);
+    z-index: 2;
+  }
+  90% {
+    transform: scale(1.04) translatey(0em) scaleY(1);
+    z-index: 2;
+  }
+  100% {
+    transform: scale(1) translatey(0em) scaleY(1);
+    z-index: 2;
+  }
+}
+#Exercise__icon {
+  top: -0em;
+}
+
+#Work {
+  background-color: map.get($colors, work);
+}
+#WorkP {
+  color: map.get($icons, work);
+}
+#Play {
+  background-color: map.get($colors, play);
+}
+#PlayP {
+  color: map.get($icons, play);
+}
+#Study {
+  background-color: map.get($colors, study);
+}
+#StudyP {
+  color: map.get($icons, study);
+}
+#Exercise {
+  background-color: map.get($colors, exercise);
+}
+#ExerciseP {
+  color: map.get($icons, exercise);
+}
+#Social {
+  background-color: map.get($colors, social);
+}
+#SocialP {
+  color: map.get($icons, social);
+}
+#Self-Care {
+  background-color: map.get($colors, self-care);
+}
+#Self-CareP {
+  color: map.get($icons, self-care);
+}
+
+@include mq-min("large") {
+  .container {
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    max-width: 966px;
+    position: relative;
+  }
+
+  .card--person {
+    grid-area: 1/1/3/2;
+    height: 100%;
+    max-width: 225px;
+    min-width: 195px;
+
+    &__top,
+    &__bottom {
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__top {
+      & .report_for {
+        grid-area: 2/1/3/4;
+        margin: 0;
+        margin-inline: 1.5rem;
+        text-align: left;
+        font-size: smaller;
+      }
+      & .name {
+        grid-area: 3/1/4/4;
+        margin: 0;
+        margin-inline: 1.5rem;
+        text-align: left;
+        font-size: 2rem;
+      }
+    }
+
+    &__bottom {
+      grid-template-rows: repeat(6, 1fr);
+      & .daily,
+      & .weekly,
+      & .monthly {
+        margin-inline: 1rem;
+        justify-self: flex-start;
+        transform-origin: left;
+      }
+      & .daily {
+        align-self: flex-end;
+        grid-row-start: 4;
+      }
+      & .weekly {
+        grid-row-start: 5;
+      }
+      & .monthly {
+        align-self: flex-start;
+        grid-row-start: 6;
+      }
+
+      & .daily:hover,
+      & .weekly:hover,
+      & .monthly:hover {
+        transform-origin: left;
+      }
+      & .active {
+        transform-origin: left;
+      }
+    }
+  }
+  .card {
+    height: 100%;
+    max-width: 225px;
+    min-width: 195px;
+
+    &__details {
+      grid-template-rows: repeat(3, 0.4fr);
+      grid-template-columns: repeat(2, 1fr);
+
+      & .previous {
+        grid-area: 3/1/3/3;
+        align-self: flex-start;
+        justify-self: flex-start;
+        padding-left: 1.5rem;
+      }
+      & .hours {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: white;
+}
+.attribution a {
+  color: hsl(228, 87%, 65%);
+}
