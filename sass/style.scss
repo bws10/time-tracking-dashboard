@@ -9,6 +9,7 @@ body {
   font-family: map.get($fonts, ff);
   font-weight: map.get($fonts, regular);
   margin: 0 auto;
+  height: 100vh;
 }
 main {
   display: flex;
