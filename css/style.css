@@ -189,7 +189,7 @@ main {
 }
 .card .animate {
   animation-name: swap;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-timing-function: linear;
 }
 .card__details {
