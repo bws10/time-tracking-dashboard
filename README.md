@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/bws10/time-tracking-dashboard)
-- Live Site URL: [Add live site URL here](https://bws10.github.io/time-tracking-dashboard/)
+- Solution URL: [https://github.com/bws10/time-tracking-dashboard](https://github.com/bws10/time-tracking-dashboard)
+- Live Site URL: [https://bws10.github.io/time-tracking-dashboard/](https://bws10.github.io/time-tracking-dashboard/)
 
 ## My process
 
