@@ -190,7 +190,7 @@ main {
 .card .animate {
   animation-name: swap;
   animation-duration: 4s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 }
 .card__details {
   grid-area: 2/1/5/4;
